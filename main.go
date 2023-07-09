@@ -11,12 +11,12 @@ type Response struct {
 }
 
 func main() {
-	http.HandleFunc("/api/hello", helloHandler)
+	http.HandleFunc("/ping", helloHandler)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
-	response := Response{Message: "Hello, World!"}
+	response := Response{Message: "pong!"}
 	jsonResponse, err := json.Marshal(response)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
