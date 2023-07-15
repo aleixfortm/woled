@@ -68,8 +68,8 @@ var getCmd = &cobra.Command{
 
 		fmt.Println("Configuration file saved successfully!")
 
-		fmt.Println("Name:", device.Name)
-		fmt.Println("MAC:", device.MACAddress)
+		fmt.Println("Name:", newDevice.Name)
+		fmt.Println("MAC:", newDevice.MACAddress)
 	},
 }
 
