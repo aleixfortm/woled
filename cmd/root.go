@@ -8,7 +8,7 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "gowol",
+	Use:   "woled",
 	Short: "An over-engineered CLI WOL tool",
 	Long:  `An over-engineered CLI Wake-on-LAN tool`,
 	// Uncomment the following line if your bare application

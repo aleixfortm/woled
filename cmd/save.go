@@ -9,7 +9,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var getCmd = &cobra.Command{
+var saveCmd = &cobra.Command{
 	Use:   "save",
 	Short: "Save device configuration",
 	Long:  `Save your device to a local config file by specifying a name and the MAC address of the device.`,
@@ -79,15 +79,21 @@ var getCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.AddCommand(getCmd)
+	rootCmd.AddCommand(saveCmd)
 
-	// Here you will define your flags and configuration settings.
+	// Add new flags to the `save` command
+	saveCmd.Flags().StringP("name", "n", "", "Name of the device")       // -n, --name flags
+	saveCmd.Flags().StringP("mac", "m", "", "MAC address of the device") // -m, --mac flags
 
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// getCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// Customizing the "usage" display
+	saveCmd.SetUsageTemplate(`Usage:
+	woled save [flags]
 
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// getCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	Flags:
+	-n, --name string   Name of the device
+	-m, --mac string    MAC address of the device
+
+	Examples:
+	gowol save -n "My Device" -m "00:11:22:33:44:55"
+	`)
 }
