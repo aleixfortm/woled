@@ -3,7 +3,7 @@
 </p>
 
 
-### **<p align="center">Go-WOL</p>**
+### **<p align="center">WOLed</p>**
 
 <p align="center"><strong>>An over-engineered CLI Wake-on-LAN tool</p>
 
