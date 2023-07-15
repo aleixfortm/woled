@@ -10,9 +10,11 @@ import (
 )
 
 var saveCmd = &cobra.Command{
-	Use:   "save",
-	Short: "Save device configuration",
-	Long:  `Save your device to a local config file by specifying a name and the MAC address of the device.`,
+	Use:     "save [name] [MAC]",
+	Short:   "Save device configuration",
+	Long:    `Save your device to a local config file by specifying a name and the MAC address of the device.`,
+	Args:    cobra.ExactArgs(2),
+	Example: `  woled save "My Device" "00:11:22:33:44:55"`,
 	Run: func(cmd *cobra.Command, args []string) {
 
 		// Create new type to save JSON data to config file
@@ -21,11 +23,6 @@ var saveCmd = &cobra.Command{
 			MACAddress string `json:"macAddress"`
 		}
 
-		// Check if two arguments have been given in the command, else cancel
-		if len(args) != 2 {
-			fmt.Println("Provide a name and a MAC address and try again")
-			return
-		}
 		// Check if MAC address is valid
 		mac := args[1]
 		match, _ := regexp.MatchString("^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$", mac)
@@ -86,14 +83,15 @@ func init() {
 	saveCmd.Flags().StringP("mac", "m", "", "MAC address of the device") // -m, --mac flags
 
 	// Customizing the "usage" display
-	saveCmd.SetUsageTemplate(`Usage:
-	woled save [flags]
+	saveCmd.SetUsageTemplate(`	Usage:
+		woled save [name] [MAC]
 
-	Flags:
-	-n, --name string   Name of the device
-	-m, --mac string    MAC address of the device
+	Arguments:
+		[name]   string   Name of the device
+		[MAC]    string   MAC address of the device
 
 	Examples:
-	gowol save -n "My Device" -m "00:11:22:33:44:55"
-	`)
+		gowol save PC-1 "00:11:22:33:44:55"
+		gowol save "My computer" "00:AF:32:4B:4C:95"
+		`)
 }
