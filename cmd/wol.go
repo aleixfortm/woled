@@ -4,7 +4,9 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net"
 	"strings"
 
@@ -13,15 +15,50 @@ import (
 
 // wolCmd represents the wol command
 var wolCmd = &cobra.Command{
-	Use:   "wol",
-	Short: "Broadcast a WOL packet to local network",
-	Long:  `Send a WOL packet to the local network, broadcasted to IP 192.168.1.255, although this can be tweaked using 'config' command.`,
+	Use:     "wol",
+	Short:   "Broadcast a WOL packet to local network",
+	Long:    `Send a WOL packet to the local network, broadcasted to IP 255.255.255.255, although this can be tweaked using 'config' command.`,
+	Args:    cobra.ExactArgs(1),
+	Example: `  woled wol PC-1`,
 	Run: func(cmd *cobra.Command, args []string) {
-		// The MAC address of the target device in the format "XX:XX:XX:XX:XX:XX"
-		macAddress := "00:11:22:33:44:55"
+
+		requestedDevice := args[0]
+
+		// Create new type to save JSON data to config file
+		type Device struct {
+			Name       string `json:"name"`
+			MACAddress string `json:"macAddress"`
+		}
+
+		// Read existing JSON file
+		filePath := "config.json"
+		configData, err := ioutil.ReadFile(filePath)
+		if err != nil {
+			fmt.Println("Failed to read JSON file:", err)
+			return
+		}
+		// Unmarshal existing JSON data into slice of type Device
+		var deviceList []Device
+		err = json.Unmarshal(configData, &deviceList)
+		if err != nil {
+			fmt.Println("Failed to Unmarshall JSON data:", err)
+		}
+
+		var foundDevice Device
+		for _, device := range deviceList {
+			if device.Name == requestedDevice {
+				foundDevice = device
+				break
+			}
+		}
+
+		if foundDevice == (Device{}) {
+			fmt.Println("Error:", requestedDevice, "does not exist. Run 'list' command to see available devices.")
+			return
+		}
 
 		// Create the magic packet by concatenating the MAC address 16 times
-		magicPacket := strings.Repeat("\xff", 6) + strings.Repeat(macAddress, 16)
+		magicPacket := strings.Repeat("\xff", 6) + strings.Repeat(foundDevice.MACAddress, 16)
 
 		// The broadcast IP address and port used for WOL packets
 		broadcastAddr := "255.255.255.255:9"
