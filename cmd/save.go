@@ -17,12 +17,6 @@ var getCmd = &cobra.Command{
 	Long:  `Save your device to a local config file by specifying a name and the MAC address of the device.`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		// Create new type to save JSON data to config file
-		type Device struct {
-			Name       string `json:"name"`
-			MACAddress string `json:"macAddress"`
-		}
-
 		// Check if two arguments have been given in the command, else cancel
 		if len(args) != 2 {
 			fmt.Println("Provide a name and a MAC address and try again")
@@ -66,7 +60,7 @@ var getCmd = &cobra.Command{
 			return
 		}
 
-		fmt.Println("Configuration file saved successfully!")
+		fmt.Println("Configuration data saved successfully!")
 
 		fmt.Println("Name:", newDevice.Name)
 		fmt.Println("MAC:", newDevice.MACAddress)
