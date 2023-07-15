@@ -45,6 +45,7 @@ var removeCmd = &cobra.Command{
 		// Find the index to remove
 		for i, d := range deviceList {
 			if d.Name == deviceToRemove {
+				// New list is the old list sliced so that the current index is excluded
 				deviceList = append(deviceList[:i], deviceList[i+1:]...)
 
 				// Convert device data to JSON
