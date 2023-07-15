@@ -32,14 +32,14 @@ var wolCmd = &cobra.Command{
 
 		// Read existing JSON file
 		filePath := "config.json"
-		configData, err := ioutil.ReadFile(filePath)
+		fileData, err := ioutil.ReadFile(filePath)
 		if err != nil {
 			fmt.Println("Failed to read JSON file:", err)
 			return
 		}
 		// Unmarshal existing JSON data into slice of type Device
 		var deviceList []Device
-		err = json.Unmarshal(configData, &deviceList)
+		err = json.Unmarshal(fileData, &deviceList)
 		if err != nil {
 			fmt.Println("Failed to Unmarshall JSON data:", err)
 		}

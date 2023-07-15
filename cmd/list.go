@@ -27,19 +27,19 @@ to quickly create a Cobra application.`,
 		}
 
 		// Read existing JSON file
-		filePath := "config.json"
-		configData, err := ioutil.ReadFile(filePath)
+		filePath := "data.json"
+		fileData, err := ioutil.ReadFile(filePath)
 		if err != nil {
 			fmt.Println("Failed to read JSON file:", err)
 			return
 		}
 		// Stop function if there is no data to show
-		if len(configData) == 0 {
+		if len(fileData) == 0 {
 			return
 		}
 		// Unmarshal existing JSON data into slice of type Device
 		var deviceList []Device
-		err = json.Unmarshal(configData, &deviceList)
+		err = json.Unmarshal(fileData, &deviceList)
 		if err != nil {
 			fmt.Println("Failed to Unmarshall JSON data:", err)
 		}
