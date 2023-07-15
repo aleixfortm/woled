@@ -27,7 +27,7 @@ var wolCmd = &cobra.Command{
 		}
 
 		// Read existing JSON file
-		filePath := "config.json"
+		filePath := "data.json"
 		fileData, err := ioutil.ReadFile(filePath)
 		if err != nil {
 			fmt.Println("Failed to read JSON file:", err)
@@ -88,7 +88,8 @@ var wolCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(wolCmd)
 	// Customizing the "usage" display
-	wolCmd.SetUsageTemplate(`Usage:
+	wolCmd.SetUsageTemplate(
+		`Usage:
 	woled wol [name]
 
 Arguments:
