@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"regexp"
 
 	"github.com/spf13/cobra"
 )
@@ -25,11 +26,18 @@ var getCmd = &cobra.Command{
 			fmt.Println("Provide a name and a MAC address and try again")
 			return
 		}
+		// Check if MAC address is valid
+		mac := args[1]
+		match, _ := regexp.MatchString("^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$", mac)
+		if !match {
+			fmt.Println("Invalid MAC address format, use format XX:XX:XX:XX:XX:XX")
+			return
+		}
 
 		// Assign given arguments to Device type
 		newDevice := Device{
 			Name:       args[0],
-			MACAddress: args[1],
+			MACAddress: mac,
 		}
 
 		// Read existing JSON file
