@@ -19,7 +19,7 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("list called")
+		fmt.Println("Device list:")
 
 		type Device struct {
 			Name       string `json:"name"`
@@ -33,7 +33,7 @@ to quickly create a Cobra application.`,
 			fmt.Println("Failed to read JSON file:", err)
 			return
 		}
-
+		// Stop function if there is no data to show
 		if len(configData) == 0 {
 			return
 		}
@@ -44,8 +44,8 @@ to quickly create a Cobra application.`,
 			fmt.Println("Failed to Unmarshall JSON data:", err)
 		}
 
-		for i, name := range deviceList {
-			fmt.Println(i, name)
+		for i, deviceData := range deviceList {
+			fmt.Println(" ", i, deviceData.Name)
 		}
 	},
 }
