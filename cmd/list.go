@@ -1,7 +1,9 @@
 package cmd
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 
 	"github.com/spf13/cobra"
 )
@@ -9,7 +11,7 @@ import (
 // listCmd represents the list command
 var listCmd = &cobra.Command{
 	Use:   "list",
-	Short: "A brief description of your command",
+	Short: "Display a list of saved devices",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
 
@@ -18,6 +20,33 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("list called")
+
+		type Device struct {
+			Name       string `json:"name"`
+			MACAddress string `json:"macAddress"`
+		}
+
+		// Read existing JSON file
+		filePath := "config.json"
+		configData, err := ioutil.ReadFile(filePath)
+		if err != nil {
+			fmt.Println("Failed to read JSON file:", err)
+			return
+		}
+
+		if len(configData) == 0 {
+			return
+		}
+		// Unmarshal existing JSON data into slice of type Device
+		var deviceList []Device
+		err = json.Unmarshal(configData, &deviceList)
+		if err != nil {
+			fmt.Println("Failed to Unmarshall JSON data:", err)
+		}
+
+		for i, name := range deviceList {
+			fmt.Println(i, name)
+		}
 	},
 }
 
