@@ -18,3 +18,7 @@
 
 <p align="center"><strong>>WIP</p>
 
+## Usage
+```go
+woled <command>
+```
