@@ -74,12 +74,17 @@ var removeCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(removeCmd)
+	// Customizing the "usage" display
+	removeCmd.SetUsageTemplate(`Usage:
+	woled remove [name]
 
-	// Here you will define your flags and configuration settings.
+Arguments:
+	[name]   string   Name of the device
 
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// removeCmd.PersistentFlags().String("foo", "", "A help for foo")
+Examples:
+	gowol remove PC-1
+	gowol remove "My computer"
+	`)
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:

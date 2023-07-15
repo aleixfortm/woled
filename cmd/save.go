@@ -74,7 +74,6 @@ var saveCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(saveCmd)
-
 	// Customizing the "usage" display
 	saveCmd.SetUsageTemplate(`Usage:
 	woled save [name] [MAC]

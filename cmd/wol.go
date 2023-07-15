@@ -1,6 +1,3 @@
-/*
-Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-*/
 package cmd
 
 import (
@@ -13,10 +10,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// wolCmd represents the wol command
 var wolCmd = &cobra.Command{
-	Use:     "wol",
-	Short:   "Broadcast a WOL packet to local network",
+	Use:     "wol [name]",
+	Short:   "Broadcast WOL packet to local network",
 	Long:    `Send a WOL packet to the local network, broadcasted to IP 255.255.255.255, although this can be tweaked using 'config' command.`,
 	Args:    cobra.ExactArgs(1),
 	Example: `  woled wol PC-1`,
@@ -85,11 +81,21 @@ var wolCmd = &cobra.Command{
 			return
 		}
 
-		fmt.Println("WOL packet sent successfully!")
+		fmt.Println("WOL packet sent successfully to", foundDevice.Name, "!")
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(wolCmd)
+	// Customizing the "usage" display
+	wolCmd.SetUsageTemplate(`Usage:
+	woled wol [name]
 
+Arguments:
+	[name]   string   Name of the device
+
+Examples:
+	gowol wol PC-1
+	gowol wol "My computer"
+	`)
 }
