@@ -11,13 +11,13 @@ import (
 
 var saveCmd = &cobra.Command{
 	Use:     "save [name] [MAC]",
-	Short:   "Save device configuration",
-	Long:    `Save your device to a local config file by specifying a name and the MAC address of the device.`,
+	Short:   "Save device data",
+	Long:    `Save your device to a local data file by specifying a name and the MAC address of the device.`,
 	Args:    cobra.ExactArgs(2),
 	Example: `  woled save "My Device" "00:11:22:33:44:55"`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		// Create new type to save JSON data to config file
+		// Create new type to save JSON data to data file
 		type Device struct {
 			Name       string `json:"name"`
 			MACAddress string `json:"macAddress"`
@@ -38,7 +38,7 @@ var saveCmd = &cobra.Command{
 		}
 
 		// Read existing JSON file
-		filePath := "config.json"
+		filePath := "data.json"
 		configData, err := ioutil.ReadFile(filePath)
 		if err != nil {
 			fmt.Println("Failed to read JSON file:", err)
@@ -47,7 +47,7 @@ var saveCmd = &cobra.Command{
 
 		// Unmarshal existing JSON data into slice of type Device
 		var deviceList []Device
-		err = json.Unmarshal(configData, &deviceList)
+		err = json.Unmarshal(dataData, &deviceList)
 		if err != nil {
 			fmt.Println("Failed to Unmarshall JSON data:", err)
 		}
@@ -61,17 +61,14 @@ var saveCmd = &cobra.Command{
 			return
 		}
 
-		// Write JSON data to the configuration file
-		err = ioutil.WriteFile("config.json", newDeviceList, 0644)
+		// Write JSON data to the data file
+		err = ioutil.WriteFile("data.json", newDeviceList, 0644)
 		if err != nil {
-			fmt.Println("Failed to write configuration file:", err)
+			fmt.Println("Failed to write data file:", err)
 			return
 		}
 
-		fmt.Println("Configuration data saved successfully!")
-
-		fmt.Println("Name:", newDevice.Name)
-		fmt.Println("MAC:", newDevice.MACAddress)
+		fmt.Println(newDevice.Name, "saved successfully with MAC address", newDevice.MACAddress)
 	},
 }
 

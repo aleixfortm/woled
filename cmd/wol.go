@@ -90,7 +90,6 @@ var wolCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.Flags().BoolP("new", "n", false, "Use the --new or -n flag to change the functionality")
 	rootCmd.AddCommand(wolCmd)
 
 }
