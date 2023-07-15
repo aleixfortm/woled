@@ -83,15 +83,15 @@ func init() {
 	saveCmd.Flags().StringP("mac", "m", "", "MAC address of the device") // -m, --mac flags
 
 	// Customizing the "usage" display
-	saveCmd.SetUsageTemplate(`	Usage:
-		woled save [name] [MAC]
+	saveCmd.SetUsageTemplate(`Usage:
+	woled save [name] [MAC]
 
-	Arguments:
-		[name]   string   Name of the device
-		[MAC]    string   MAC address of the device
+Arguments:
+	[name]   string   Name of the device
+	[MAC]    string   MAC address of the device
 
-	Examples:
-		gowol save PC-1 "00:11:22:33:44:55"
-		gowol save "My computer" "00:AF:32:4B:4C:95"
-		`)
+Examples:
+	gowol save PC-1 00:11:22:33:44:55
+	gowol save "My computer" 04:AF:32:4B:4C:95
+	`)
 }
