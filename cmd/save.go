@@ -78,10 +78,6 @@ var saveCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(saveCmd)
 
-	// Add new flags to the `save` command
-	saveCmd.Flags().StringP("name", "n", "", "Name of the device")       // -n, --name flags
-	saveCmd.Flags().StringP("mac", "m", "", "MAC address of the device") // -m, --mac flags
-
 	// Customizing the "usage" display
 	saveCmd.SetUsageTemplate(`Usage:
 	woled save [name] [MAC]
