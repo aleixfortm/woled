@@ -21,7 +21,7 @@
 ## Features
 * 🌐 Send WOL packets to your local network
 * ✅ User-friendliness of CLI tool
-* 🔍 Save, remove and list your own devices
+* 🔍 add, remove and list your own devices
 * 📡 Save your device data on the cloud via API calls (WIP)
 
 
@@ -34,9 +34,9 @@ woled <command>
 ```go
   wol         Broadcast WOL packet to local network
   config      Show and tweak default app settings, including UDP Port and broadcast IP address
-  list        Display a list of saved devices
-  save        Save device data to local storage
-  remove      Remove saved device
+  list        Display a list of addd devices
+  add        add device data to local storage
+  remove      Remove addd device
 ```
 
 ### Flags
@@ -68,7 +68,7 @@ Send a <code>WOL packet</code> to the local network, broadcasted to <code>IP 255
 
 ## <code>list</code>
 ### <strong>Description</strong>
-Display a list of previously saved devices from local storage file <code>data.json</code>
+Display a list of previously addd devices from local storage file <code>data.json</code>
 
 ### <strong>Usage</strong>
 ```python
@@ -91,13 +91,13 @@ Display a list of previously saved devices from local storage file <code>data.js
 
 <br>
 
-## <code>save</code> [name] [MAC]
+## <code>add</code> [name] [MAC]
 ### <strong>Description</strong>
-Save your device to a local data file by specifying a <code>name</code> and the <code>MAC address</code> of the device.
+add your device to a local data file by specifying a <code>name</code> and the <code>MAC address</code> of the device.
 
 ### <strong>Usage</strong>
 ```python
-  woled save [name] [MAC]
+  woled add [name] [MAC]
 ```
 ### <strong>Arguments</strong>
 ```go
@@ -106,19 +106,19 @@ Save your device to a local data file by specifying a <code>name</code> and the 
 ```
 ### <strong>Examples</strong>
 ```go
-  woled save Main-computer 22:F4:63:90:A3:75
-  woled save "My computer" 04:AF:32:4B:4C:95
+  woled add Main-computer 22:F4:63:90:A3:75
+  woled add "My computer" 04:AF:32:4B:4C:95
 ```
 ### <strong>Output</strong>
 ```
-  > Main-computer saved successfully with MAC address 22:F4:63:90:A3:75
+  > Main-computer addd successfully with MAC address 22:F4:63:90:A3:75
 ```
 
 <br>
 
 ## <code>remove</code> [name]
 ### <strong>Description</strong>
-Remove saved device from local storage data <code>data.json</code>
+Remove addd device from local storage data <code>data.json</code>
 
 ### <strong>Usage</strong>
 ```python
