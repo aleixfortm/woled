@@ -9,15 +9,15 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var saveCmd = &cobra.Command{
-	Use:     "save [name] [MAC]",
-	Short:   "Save device data",
-	Long:    `Save your device to a local data file by specifying a name and the MAC address of the device.`,
+var addCmd = &cobra.Command{
+	Use:     "add [name] [MAC]",
+	Short:   "add device data",
+	Long:    `add your device to a local data file by specifying a name and the MAC address of the device.`,
 	Args:    cobra.ExactArgs(2),
-	Example: `  woled save "My Device" "00:11:22:33:44:55"`,
+	Example: `  woled add "My Device" "00:11:22:33:44:55"`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		// Create new type to save JSON data to data file
+		// Create new type to add JSON data to data file
 		type Device struct {
 			Name       string `json:"name"`
 			MACAddress string `json:"macAddress"`
@@ -73,17 +73,17 @@ var saveCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.AddCommand(saveCmd)
+	rootCmd.AddCommand(addCmd)
 	// Customizing the "usage" display
-	saveCmd.SetUsageTemplate(`Usage:
-	woled save [name] [MAC]
+	addCmd.SetUsageTemplate(`Usage:
+	woled add [name] [MAC]
 
 Arguments:
 	[name]   string   Name of the device
 	[MAC]    string   MAC address of the device
 
 Examples:
-	gowol save PC-1 00:11:22:33:44:55
-	gowol save "My computer" 04:AF:32:4B:4C:95
+	gowol add PC-1 00:11:22:33:44:55
+	gowol add "My computer" 04:AF:32:4B:4C:95
 	`)
 }
