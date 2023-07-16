@@ -19,10 +19,10 @@
 <br>
 
 ## Features
-* Send WOL packets to your local network
-* User-friendliness of CLI tool
-* Save, remove and list your own devices
-* (WIP) Save your device data on the cloud via API calls
+* 🌐 Send WOL packets to your local network
+* ✅ User-friendliness of CLI tool
+* 🔍 Save, remove and list your own devices
+* 📡 Save your device data on the cloud via API calls (WIP)
 
 
 ## Usage
