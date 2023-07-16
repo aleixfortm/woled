@@ -21,7 +21,7 @@
 ## Features
 * 🌐 Send WOL packets to your local network
 * ✅ User-friendliness of CLI tool
-* 🔍 add, remove and list your own devices
+* 🔍 Add, remove and list your own devices
 * 📡 Save your device data on the cloud via API calls (WIP)
 
 
