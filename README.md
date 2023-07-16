@@ -39,7 +39,7 @@ woled <command>
 
 ## <code>wol</code> [name]
 ### <strong>Description</strong>
-Send a WOL packet to the local network, broadcasted to IP 255.255.255.255 by default.
+Send a <code>WOL packet</code> to the local network, broadcasted to <code>IP 255.255.255.255</code> by default.
 
 ### <strong>Usage</strong>
 ```python
@@ -59,7 +59,7 @@ Send a WOL packet to the local network, broadcasted to IP 255.255.255.255 by def
 
 ## <code>list</code>
 ### <strong>Description</strong>
-Display a list of previously saved devices from local storage file data.json
+Display a list of previously saved devices from local storage file <code>data.json</code>
 
 ### <strong>Usage</strong>
 ```python
@@ -73,12 +73,16 @@ Display a list of previously saved devices from local storage file data.json
 ```go
   woled list
 ```
+### <strong>Output</strong>
+```
+  > Main-computer saved successfully with MAC address 22:F4:63:90:A3:75
+```
 
 <br>
 
 ## <code>save</code> [name] [MAC]
 ### <strong>Description</strong>
-Save your device to a local data file by specifying a name and the MAC address of the device.
+Save your device to a local data file by specifying a <code>name</code> and the <code>MAC address</code> of the device.
 
 ### <strong>Usage</strong>
 ```python
@@ -91,15 +95,19 @@ Save your device to a local data file by specifying a name and the MAC address o
 ```
 ### <strong>Examples</strong>
 ```go
-  gowol save PC-1 00:11:22:33:44:55
+  gowol save Main-computer 22:F4:63:90:A3:75
   gowol save "My computer" 04:AF:32:4B:4C:95
+```
+### <strong>Output</strong>
+```
+  > Main-computer saved successfully with MAC address 22:F4:63:90:A3:75
 ```
 
 <br>
 
 ## <code>remove</code> [name]
 ### <strong>Description</strong>
-Send a WOL packet to the local network, broadcasted to IP 255.255.255.255 by default.
+Remove saved device from local storage data <code>data.json</code>
 
 ### <strong>Usage</strong>
 ```python
