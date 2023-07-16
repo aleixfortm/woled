@@ -18,12 +18,19 @@
 
 <br>
 
+## Features
+* Send WOL packets to your local network
+* User-friendliness of CLI tool
+* Save, remove and list your own devices
+* (WIP) Save your device data on the cloud via API calls
+
+
 ## Usage
 ```go
 woled <command>
 ```
 
-## Commands and flags
+### Commands
 ```go
   wol         Broadcast WOL packet to local network
   config      Show and tweak default app settings, including UDP Port and broadcast IP address
@@ -31,6 +38,8 @@ woled <command>
   save        Save device data to local storage
   remove      Remove saved device
 ```
+
+### Flags
 ```go
   -h, --help   show arguments and examples
 ```
@@ -133,8 +142,8 @@ Remove saved device from local storage data <code>data.json</code>
 <br>
 
 
-# Data.json file structure
-## Model
+## Data file structure
+### Model
 ```Python
 Device:
   Name:        string
@@ -143,7 +152,7 @@ Device:
 
 <br>
 
-## Example:
+### Example
 ```js
 [
     {
