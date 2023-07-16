@@ -1,4 +1,4 @@
-module go-wol
+module woled
 
 go 1.20
 

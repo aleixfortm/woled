@@ -1,6 +1,6 @@
 package main
 
-import "go-wol/cmd"
+import "woled/cmd"
 
 func main() {
 	cmd.Execute()
