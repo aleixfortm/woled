@@ -96,7 +96,7 @@ Arguments:
 	[name]   string   Name of the device
 
 Examples:
-	gowol wol PC-1
-	gowol wol "My computer"
+	woled wol PC-1
+	woled wol "My computer"
 	`)
 }

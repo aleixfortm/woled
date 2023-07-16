@@ -83,7 +83,7 @@ Arguments:
 	[MAC]    string   MAC address of the device
 
 Examples:
-	gowol add PC-1 00:11:22:33:44:55
-	gowol add "My computer" 04:AF:32:4B:4C:95
+	woled add PC-1 00:11:22:33:44:55
+	woled add "My computer" 04:AF:32:4B:4C:95
 	`)
 }

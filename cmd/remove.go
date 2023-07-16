@@ -82,8 +82,8 @@ Arguments:
 	[name]   string   Name of the device
 
 Examples:
-	gowol remove PC-1
-	gowol remove "My computer"
+	woled remove PC-1
+	woled remove "My computer"
 	`)
 
 	// Cobra supports local flags which will only run when this command
