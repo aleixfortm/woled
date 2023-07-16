@@ -97,8 +97,8 @@ Save your device to a local data file by specifying a <code>name</code> and the 
 ```
 ### <strong>Examples</strong>
 ```go
-  gowol save Main-computer 22:F4:63:90:A3:75
-  gowol save "My computer" 04:AF:32:4B:4C:95
+  woled save Main-computer 22:F4:63:90:A3:75
+  woled save "My computer" 04:AF:32:4B:4C:95
 ```
 ### <strong>Output</strong>
 ```
