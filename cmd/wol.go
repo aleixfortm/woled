@@ -57,7 +57,7 @@ var wolCmd = &cobra.Command{
 		magicPacket := strings.Repeat("\xff", 6) + strings.Repeat(foundDevice.MACAddress, 16)
 
 		// The broadcast IP address and port used for WOL packets
-		broadcastAddr := "255.255.255.255:9"
+		broadcastAddr := "255.255.255.255:6"
 
 		// Resolve the UDP address for the broadcast IP and port
 		udpAddr, err := net.ResolveUDPAddr("udp", broadcastAddr)
