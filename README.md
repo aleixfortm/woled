@@ -75,7 +75,9 @@ Display a list of previously saved devices from local storage file <code>data.js
 ```
 ### <strong>Output</strong>
 ```
-  > Main-computer saved successfully with MAC address 22:F4:63:90:A3:75
+  > Device list:
+  0 Main-computer
+  1 PC-2
 ```
 
 <br>
@@ -111,7 +113,7 @@ Remove saved device from local storage data <code>data.json</code>
 
 ### <strong>Usage</strong>
 ```python
-  woled wol [name]
+  woled remove [name]
 ```
 ### <strong>Arguments</strong>
 ```go
@@ -119,8 +121,38 @@ Remove saved device from local storage data <code>data.json</code>
 ```
 ### <strong>Examples</strong>
 ```go
-  woled wol PC-1
-  woled wol "My computer"
+  woled remove PC-1
+  woled remove "My computer"
+```
+
+### <strong>Output</strong>
+```
+  > Main-computer has been successfully deleted.
 ```
 
 <br>
+
+
+# Data.json file structure
+## Model
+```Python
+Device:
+  Name:        string
+  MACAddress:  string
+```
+
+<br>
+
+## Example:
+```js
+[
+    {
+        "name": "Main-computer",
+        "macAddress": "22:F4:63:90:A3:75"
+    },
+    {
+        "name": "PC-2",
+        "macAddress": "5E:F9:AA:70:A3:8C"
+    }
+]
+```
