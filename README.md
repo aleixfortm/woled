@@ -4,7 +4,7 @@
 
 
 
-### **<p align="center">WOLed</p>**
+### **<p align="center">Woled</p>**
 
 
 <p align="center"><strong>> An over-engineered CLI Wake-on-LAN tool</strong><br>Add your own devices, edit config data and broadcast WOL packets through a CLI application</p>
