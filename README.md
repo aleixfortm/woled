@@ -38,7 +38,7 @@ git clone https://github.com/aleixfortm/woled
 cd woled
 go install
 ```
-After this, you'll be able to use Woled from your OS's <code>CLI</code>.
+You should now be able to use Woled commands from your <code>CLI</code>.
 
 ## Usage
 ```go
