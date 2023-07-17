@@ -20,10 +20,24 @@
 
 ## Features
 * 🌐 Send WOL packets to your local network
-* ✅ User-friendliness of CLI tool
-* 🔍 Add, remove and list your own devices
-* 📡 Save your device data on the cloud via API calls (WIP)
+* ✅ User-friendliness and simplicity of a CLI tool
+* 🔍 Save, remove and list your own devices
 
+
+## Getting started 
+### Dependencies
+| Dependency       | Purpose                 | Version                    | Download link         |
+|------------------|-------------------------|----------------------------| ----------------------|
+| Go               |  Compiling              | v1.20.6                    | https://go.dev/dl/    |
+
+### Installing and using the app
+To install the <code>CLI</code> application in your machine, copy the following code snippet into your terminal:
+
+```cmd
+git clone https://github.com/aleixfortm/woled
+cd woled
+go install
+```
 
 ## Usage
 ```go
@@ -45,7 +59,7 @@ woled <command>
 ```
 
 <br>
-
+<!--
 ## <code>wol</code> [name]
 ### <strong>Description</strong>
 Send a <code>WOL packet</code> to the local network, broadcasted to <code>IP 255.255.255.255</code> by default.
@@ -165,3 +179,4 @@ Device:
     }
 ]
 ```
+-->
