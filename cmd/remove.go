@@ -47,6 +47,12 @@ var removeCmd = &cobra.Command{
 			return
 		}
 
+		// Stop function if there is no data to show
+		if len(fileData) == 0 {
+			fmt.Println("Device list is already empty")
+			return
+		}
+
 		// Unmarshal existing JSON data into slice of type Device
 		var deviceList []Device
 		err = json.Unmarshal(fileData, &deviceList)
@@ -59,7 +65,7 @@ var removeCmd = &cobra.Command{
 			if d.Name == deviceToRemove {
 				// New list is the old list sliced so that the current index is excluded
 				deviceList = append(deviceList[:i], deviceList[i+1:]...)
-
+				fmt.Println(deviceList)
 				// Convert device data to JSON
 				DeviceList, err := json.MarshalIndent(deviceList, "", "    ")
 				if err != nil {
@@ -68,13 +74,13 @@ var removeCmd = &cobra.Command{
 				}
 
 				// Write JSON data to the data file
-				err = ioutil.WriteFile("config.json", DeviceList, 0644)
+				err = ioutil.WriteFile("data.json", DeviceList, 0644)
 				if err != nil {
 					fmt.Println("Failed to write data file:", err)
 					return
 				}
 
-				fmt.Println(deviceToRemove, "has been successfully deleted.")
+				fmt.Println(d.Name, "has been successfully deleted.")
 
 				return
 			}

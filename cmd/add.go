@@ -60,7 +60,7 @@ var addCmd = &cobra.Command{
 		// Unmarshal existing JSON data into slice of type Device
 		var deviceList []Device
 		err = json.Unmarshal(fileData, &deviceList)
-		if err != nil {
+		if err != nil && len(deviceList) > 0 {
 			fmt.Println("Failed to Unmarshall JSON data:", err)
 		}
 
@@ -80,7 +80,7 @@ var addCmd = &cobra.Command{
 			return
 		}
 
-		fmt.Println(newDevice.Name, "saved successfully with MAC address", newDevice.MACAddress)
+		fmt.Println(newDevice.Name, "added successfully with MAC address", newDevice.MACAddress)
 	},
 }
 
