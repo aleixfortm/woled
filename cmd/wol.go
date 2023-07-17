@@ -13,7 +13,7 @@ import (
 var wolCmd = &cobra.Command{
 	Use:     "wol [name]",
 	Short:   "Broadcast WOL packet to local network",
-	Long:    `Send a WOL packet to the local network, broadcasted to IP 255.255.255.255, although this can be tweaked using 'config' command.`,
+	Long:    `Send a WOL packet to the local network. Broadcast IP address and UDP port can be configured running 'config' command`,
 	Args:    cobra.ExactArgs(1),
 	Example: `  woled wol PC-1`,
 	Run: func(cmd *cobra.Command, args []string) {
