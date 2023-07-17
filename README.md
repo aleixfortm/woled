@@ -26,8 +26,7 @@
 
 ## Getting started 
 ### Dependencies
-| Dependency       | Purpose                 
-| Version                    | Download link         |
+| Dependency       | Purpose                 | Version                    | Download link         |
 |------------------|-------------------------|----------------------------| ----------------------|
 | Go               |  Compiling              | v1.20.6                    | https://go.dev/dl/    |
 
