@@ -59,7 +59,7 @@ woled <command>
 ```
 
 <br>
-
+<!--
 ## <code>wol</code> [name]
 ### <strong>Description</strong>
 Send a <code>WOL packet</code> to the local network, broadcasted to <code>IP 255.255.255.255</code> by default.
@@ -179,3 +179,4 @@ Device:
     }
 ]
 ```
+-->
