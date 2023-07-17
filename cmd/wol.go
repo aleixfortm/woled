@@ -94,13 +94,13 @@ func init() {
 	// Customizing the "usage" display
 	wolCmd.SetUsageTemplate(
 		`Usage:
-	woled wol [name]
+  woled wol [name]
 
 Arguments:
-	[name]   string   Name of the device
+  [name]   string   Name of the device
 
 Examples:
-	woled wol PC-1
-	woled wol "My computer"
+  woled wol PC-1
+  woled wol "My computer"
 	`)
 }

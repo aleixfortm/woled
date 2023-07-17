@@ -95,14 +95,14 @@ func init() {
 	rootCmd.AddCommand(removeCmd)
 	// Customizing the "usage" display
 	removeCmd.SetUsageTemplate(`Usage:
-	woled remove [name]
+  woled remove [name]
 
 Arguments:
-	[name]   string   Name of the device
+  [name]   string   Name of the device
 
 Examples:
-	woled remove PC-1
-	woled remove "My computer"
+  woled remove PC-1
+  woled remove "My computer"
 	`)
 
 	// Cobra supports local flags which will only run when this command

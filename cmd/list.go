@@ -13,7 +13,7 @@ import (
 var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "Display a list of saved devices",
-	Long:  `list command displays a list of saved devices from data.json file`,
+	Long:  `Displays an ordered list of saved devices from data.json file`,
 	Run: func(cmd *cobra.Command, args []string) {
 
 		type Device struct {
@@ -67,12 +67,12 @@ func init() {
 
 	// Customizing the "usage" display
 	listCmd.SetUsageTemplate(`Usage:
-	woled list
+  woled list
 
 Arguments:
-	None
+  None
 
 Examples:
-	woled list
+  woled list
 	`)
 }

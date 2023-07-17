@@ -12,8 +12,8 @@ import (
 
 var addCmd = &cobra.Command{
 	Use:     "add [name] [MAC]",
-	Short:   "add device data",
-	Long:    `add your device to a local data file by specifying a name and the MAC address of the device.`,
+	Short:   "Add device data",
+	Long:    `Add your device to a local data file by specifying a name and the MAC address of the device.`,
 	Args:    cobra.ExactArgs(2),
 	Example: `  woled add "My Device" "00:11:22:33:44:55"`,
 	Run: func(cmd *cobra.Command, args []string) {
@@ -88,14 +88,14 @@ func init() {
 	rootCmd.AddCommand(addCmd)
 	// Customizing the "usage" display
 	addCmd.SetUsageTemplate(`Usage:
-	woled add [name] [MAC]
+  woled add [name] [MAC]
 
 Arguments:
-	[name]   string   Name of the device
-	[MAC]    string   MAC address of the device
+  [name]   string   Name of the device
+  [MAC]    string   MAC address of the device
 
 Examples:
-	woled add PC-1 00:11:22:33:44:55
-	woled add "My computer" 04:AF:32:4B:4C:95
+  woled add PC-1 00:11:22:33:44:55
+  woled add "My computer" 04:AF:32:4B:4C:95
 	`)
 }
