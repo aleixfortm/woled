@@ -35,7 +35,7 @@ woled <command>
   wol         Broadcast WOL packet to local network
   config      Show and tweak default app settings, including UDP Port and broadcast IP address
   list        Display a list of addd devices
-  add        add device data to local storage
+  add         Add device data to local storage
   remove      Remove addd device
 ```
 
