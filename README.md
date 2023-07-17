@@ -34,9 +34,9 @@ woled <command>
 ```go
   wol         Broadcast WOL packet to local network
   config      Show and tweak default app settings, including UDP Port and broadcast IP address
-  list        Display a list of addd devices
+  list        Display a list of added devices
   add         Add device data to local storage
-  remove      Remove addd device
+  remove      Remove added device
 ```
 
 ### Flags
@@ -68,7 +68,7 @@ Send a <code>WOL packet</code> to the local network, broadcasted to <code>IP 255
 
 ## <code>list</code>
 ### <strong>Description</strong>
-Display a list of previously addd devices from local storage file <code>data.json</code>
+Display a list of previously added devices from local storage file <code>data.json</code>
 
 ### <strong>Usage</strong>
 ```python
@@ -111,14 +111,14 @@ add your device to a local data file by specifying a <code>name</code> and the <
 ```
 ### <strong>Output</strong>
 ```
-  > Main-computer addd successfully with MAC address 22:F4:63:90:A3:75
+  > Main-computer added successfully with MAC address 22:F4:63:90:A3:75
 ```
 
 <br>
 
 ## <code>remove</code> [name]
 ### <strong>Description</strong>
-Remove addd device from local storage data <code>data.json</code>
+Remove added device from local storage data <code>data.json</code>
 
 ### <strong>Usage</strong>
 ```python
