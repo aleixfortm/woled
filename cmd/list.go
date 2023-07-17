@@ -41,10 +41,8 @@ var listCmd = &cobra.Command{
 			return
 		}
 
-		fmt.Println(len(fileData))
-
 		// Stop function if there is no data to show
-		if len(fileData) == 0 {
+		if len(fileData) <= 2 {
 			fmt.Println("Your device list is empty. Run 'add' command to add a device.")
 			return
 		}
