@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"os"
 	"regexp"
 
 	"github.com/spf13/cobra"
@@ -37,8 +38,19 @@ var addCmd = &cobra.Command{
 			MACAddress: mac,
 		}
 
-		// Read existing JSON file
 		filePath := "data.json"
+		// Check if the file doesn't exist
+		if _, err := os.Stat(filePath); os.IsNotExist(err) {
+			// Create the file
+			file, err := os.Create(filePath)
+			if err != nil {
+				fmt.Println("Failed to create JSON file:", err)
+				return
+			}
+			defer file.Close()
+		}
+
+		// Read existing JSON file
 		fileData, err := ioutil.ReadFile(filePath)
 		if err != nil {
 			fmt.Println("Failed to read JSON file:", err)
