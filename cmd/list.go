@@ -12,12 +12,7 @@ import (
 var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "Display a list of saved devices",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Long:  `list command displays a list of saved devices from data.json file`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Device list:")
 
@@ -44,8 +39,9 @@ to quickly create a Cobra application.`,
 			fmt.Println("Failed to Unmarshall JSON data:", err)
 		}
 
+		fmt.Println("i", "Device", "MAC Address")
 		for i, deviceData := range deviceList {
-			fmt.Println(" ", i, deviceData.Name)
+			fmt.Println(" ", i, deviceData.Name, "  ", deviceData.MACAddress)
 		}
 	},
 }

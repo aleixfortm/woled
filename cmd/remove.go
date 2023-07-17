@@ -31,7 +31,7 @@ var removeCmd = &cobra.Command{
 		filePath := "config.json"
 		fileData, err := ioutil.ReadFile(filePath)
 		if err != nil {
-			fmt.Println("Failed to read JSON file:", err)
+			fmt.Println("Failed to read data file:", err)
 			return
 		}
 
