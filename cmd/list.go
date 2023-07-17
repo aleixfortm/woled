@@ -15,7 +15,6 @@ var listCmd = &cobra.Command{
 	Short: "Display a list of saved devices",
 	Long:  `list command displays a list of saved devices from data.json file`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Device list:")
 
 		type Device struct {
 			Name       string `json:"name"`
@@ -43,6 +42,7 @@ var listCmd = &cobra.Command{
 		}
 		// Stop function if there is no data to show
 		if len(fileData) == 0 {
+			fmt.Println("Your device list is empty. Run 'add' command to add your first device.")
 			return
 		}
 		// Unmarshal existing JSON data into slice of type Device
@@ -52,10 +52,11 @@ var listCmd = &cobra.Command{
 			fmt.Println("Failed to Unmarshall JSON data:", err)
 		}
 
-		fmt.Println("i", "Device", "MAC Address")
+		fmt.Println("Device list:")
 		for i, deviceData := range deviceList {
 			fmt.Println(" ", i, deviceData.Name, "  ", deviceData.MACAddress)
 		}
+
 	},
 }
 

@@ -33,11 +33,15 @@ var wolCmd = &cobra.Command{
 			fmt.Println("Failed to read JSON file:", err)
 			return
 		}
-		// Unmarshal existing JSON data into slice of type Device
+
 		var deviceList []Device
-		err = json.Unmarshal(fileData, &deviceList)
-		if err != nil {
-			fmt.Println("Failed to Unmarshall JSON data:", err)
+		// Stop function if there is no data to show
+		if len(fileData) == 0 {
+			// Unmarshal existing JSON data into slice of type Device
+			err = json.Unmarshal(fileData, &deviceList)
+			if err != nil {
+				fmt.Println("Failed to Unmarshall JSON data:", err)
+			}
 		}
 
 		var foundDevice Device
