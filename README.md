@@ -26,7 +26,8 @@
 
 ## Getting started 
 ### Dependencies
-| Dependency       | Purpose                 | Version                    | Download link         |
+| Dependency       | Purpose                 
+| Version                    | Download link         |
 |------------------|-------------------------|----------------------------| ----------------------|
 | Go               |  Compiling              | v1.20.6                    | https://go.dev/dl/    |
 
@@ -38,6 +39,7 @@ git clone https://github.com/aleixfortm/woled
 cd woled
 go install
 ```
+After this, you'll be able to use Woled from your OS's <code>CLI</code>.
 
 ## Usage
 ```go
