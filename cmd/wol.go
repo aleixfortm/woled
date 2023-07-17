@@ -36,12 +36,15 @@ var wolCmd = &cobra.Command{
 
 		var deviceList []Device
 		// Stop function if there is no data to show
-		if len(fileData) == 0 {
+		if len(fileData) != 0 {
 			// Unmarshal existing JSON data into slice of type Device
 			err = json.Unmarshal(fileData, &deviceList)
 			if err != nil {
 				fmt.Println("Failed to Unmarshall JSON data:", err)
 			}
+		} else {
+			fmt.Println("Failed to retrieve saved data")
+			return
 		}
 
 		var foundDevice Device
@@ -85,7 +88,7 @@ var wolCmd = &cobra.Command{
 			return
 		}
 
-		fmt.Println("WOL packet sent successfully to", foundDevice.Name, "!")
+		fmt.Println("WOL packet sent successfully to", foundDevice.Name)
 	},
 }
 
