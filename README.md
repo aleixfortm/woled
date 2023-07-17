@@ -48,10 +48,10 @@ woled <command>
 ### Commands
 ```go
   wol         Broadcast WOL packet to local network
-  config      Show and tweak default app settings, including UDP Port and broadcast IP address
-  list        Display a list of added devices
   add         Add device data to local storage
-  remove      Remove added device
+  remove      Remove a device from local storage
+  list        Display a list of added devices
+  config      Show and tweak default app settings, including UDP Port and broadcast IP address
 ```
 
 ### Flags
