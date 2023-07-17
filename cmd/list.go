@@ -40,11 +40,15 @@ var listCmd = &cobra.Command{
 			fmt.Println("Failed to read JSON file:", err)
 			return
 		}
+
+		fmt.Println(len(fileData))
+
 		// Stop function if there is no data to show
 		if len(fileData) == 0 {
-			fmt.Println("Your device list is empty. Run 'add' command to add your first device.")
+			fmt.Println("Your device list is empty. Run 'add' command to add a device.")
 			return
 		}
+
 		// Unmarshal existing JSON data into slice of type Device
 		var deviceList []Device
 		err = json.Unmarshal(fileData, &deviceList)
@@ -54,7 +58,7 @@ var listCmd = &cobra.Command{
 
 		fmt.Println("Device list:")
 		for i, deviceData := range deviceList {
-			fmt.Println(" ", i, deviceData.Name, "  ", deviceData.MACAddress)
+			fmt.Println(" ", i, "", deviceData.Name, "", deviceData.MACAddress)
 		}
 
 	},
