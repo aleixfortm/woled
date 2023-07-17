@@ -25,6 +25,21 @@
 * 📡 Save your device data on the cloud via API calls (WIP)
 
 
+## Getting started 
+### Dependencies
+| Dependency       | Purpose                 | Version                    | Download link         |
+|------------------|-------------------------|----------------------------| ----------------------|
+| Go               |  Compiling              | v1.20.6                    | https://go.dev/dl/    |
+
+### Installing and using the app
+To install the <code>CLI</code> application in your machine, copy the following code snippet into your terminal:
+
+```cmd
+git clone https://github.com/aleixfortm/woled
+cd woled
+go install
+```
+
 ## Usage
 ```go
 woled <command>
