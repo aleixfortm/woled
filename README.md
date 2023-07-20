@@ -7,7 +7,7 @@
 ### **<p align="center">Woled</p>**
 
 
-<p align="center"><strong>> An user-friendly CLI Wake-on-LAN tool</strong><br>Add your own devices, edit config data and broadcast WOL packets through a CLI application</p>
+<p align="center"><strong>> A user-friendly CLI Wake-on-LAN tool</strong><br>Add your own devices, edit config data and broadcast WOL packets through a CLI application</p>
 
 <div align="center">
   <a href="https://skillicons.dev">
